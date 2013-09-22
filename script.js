@@ -12,15 +12,19 @@ $(function() {
     	normalRangeMax: 20.3,
     	normalRangeColor: '#00ff00'
     });
-});
 
-$(function() {
-    $( "#slider-vertical" ).slider({
-      orientation: "vertical",
-      range: "min",
-      min: 0,
-      max: 100,
-      value: 60,
+    $( "#slider-vertical > span" ).each(function() {
+      // read initial values from markup and remove that
+      var value = parseInt( $( this ).text(), 10 );
+      $( this ).empty().slider({
+        value: value,
+        range: "min",
+        max: 220,
+        min: 180,
+        animate: true,
+        orientation: "vertical"
+      });
+      $(this).append("<label for=span id='numeri'>"+value/10+"</label>");
     });
 });
 
