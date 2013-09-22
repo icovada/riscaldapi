@@ -1,7 +1,8 @@
 $(function() {
+	var tempwid = $('.lcd').width();
 	$(".sparkline").sparkline('html', {
 		type: 'line',
-		width: '80%',
+		width: 600-tempwid,
     	height: '100',
     	fillcolor: undefined,
     	minSpotColor: '#0000ff',
@@ -13,10 +14,5 @@ $(function() {
     });
 });
 
-function hideterm() {
-	$(".lcd").slideToggle();
-}
-
-$(document).ready(function() {
-    $(".lcd").on('click', hideterm);
+$(document).ready(function(){
 });

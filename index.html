@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset="utf-8">
 <html>
 <head>
 <title>Welcome to nginx!</title>
@@ -16,34 +17,39 @@
     	padding: 2em;
     }
     .lcd {
+    	position: relative;
+    	top: 20px;
     	border-radius: 20px;
     	background: #EDEDED;
-    	width: 3em;
     	vertical-align: middle;
-    	padding: 1em;
+    	padding: 2em;
     }
     .lcdtxt{
 		text-align: center;
+		line-height: 40px;
 		font-family: monospace;
 		font-size: 40px;
 		color: green;
+    }
+    .sparkline{
+    	position: relative;
+    	padding-left: 8%;
+    	padding-right: 0px;
     }
 </style>
 </head>
 <body>
 <h1>Welcome to nginx!</h1>
 <div class="termostato">
-	<div class="lcd"><span class="lcdtxt">23</span></div>
-	<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
-
-	<p>For online documentation and support please refer to
-	<a href="http://nginx.org/">nginx.org</a>.<br/>
-	Commercial support is available at
-	<a href="http://nginx.com/">nginx.com</a>.</p>
+	<span class="lcd">
+	    <span class="lcdtxt">20,25°</span>
+	</span>
+	<span class="sparkline">18,19,20,20.3,20.5,20.3,19,18,21.9,19,19.3,19.8,20,20.2,20.3,22</span>
 </div>
 
 <p><em>Thank you for using nginx.</em></p>
 <script src="jquery.js"></script>
+<script src="sparkline.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
