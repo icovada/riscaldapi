@@ -24,7 +24,7 @@ $(function () {
             animate: true,
             orientation: "vertical",
             slide: function (event, ui) {
-                $("#numeri").val(ui.value);
+                $(this).parent().find("label").text((parseInt($(this).slider('value'))/10).toFixed(1));
             }
         });
     });
