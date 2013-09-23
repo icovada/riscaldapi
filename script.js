@@ -19,13 +19,17 @@ $(function () {
         $(this).after("<label for=span id='numeri'>" + (value / 10).toFixed(1) + "</label>");
         $(this).empty().slider({
             value: value,
-            max: 221,
-            min: 179,
+            max: 220,
+            min: 180,
             animate: false,
             orientation: "vertical",
             slide: function (event, ui) {
                 $(this).parent().find("label").text((parseInt($(this).slider('value'))/10).toFixed(1));
+            },
+            change: function (event, ui) {
+                $(this).parent().find("label").text((parseInt($(this).slider('value'))/10).toFixed(1));
             }
         });
     });
+
 });
