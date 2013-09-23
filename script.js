@@ -1,8 +1,8 @@
 $(function () {
-    var tempwid = $('.lcd').width();
+    //var tempwid = $('.lcd').width();
     $(".sparkline").sparkline('html', {
         type: 'line',
-        width: 600 - tempwid,
+        width: 600,// - tempwid,
         height: '100',
         fillcolor: undefined,
         minSpotColor: '#0000ff',
@@ -19,9 +19,9 @@ $(function () {
         $(this).after("<label for=span id='numeri'>" + (value / 10).toFixed(1) + "</label>");
         $(this).empty().slider({
             value: value,
-            max: 220,
-            min: 180,
-            animate: true,
+            max: 221,
+            min: 179,
+            animate: false,
             orientation: "vertical",
             slide: function (event, ui) {
                 $(this).parent().find("label").text((parseInt($(this).slider('value'))/10).toFixed(1));

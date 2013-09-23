@@ -7,6 +7,10 @@ body {
 	border: 2px solid gray;
 	border-radius: 1em;
 	background: -webkit-linear-gradient(top, #E4E4E4, #BBBABB);
+    background:    -moz-linear-gradient(top, #E4E4E4, #BBBABB);
+    background:     -ms-linear-gradient(top, #E4E4E4, #BBBABB);
+    background:      -o-linear-gradient(top, #E4E4E4, #BBBABB);
+    background:        -linear-gradient(top, #E4E4E4, #BBBABB);
 	text-align:justify;
 	padding: 2em;
 }
