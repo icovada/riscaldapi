@@ -13,7 +13,7 @@ $(function() {
     	normalRangeColor: '#00ff00'
     });
 
-    $( "#slider-vertical > span" ).each(function() {
+    $("td > #slider").each(function() {
       // read initial values from markup and remove that
       var value = parseInt( $( this ).text(), 10 );
       $( this ).empty().slider({
