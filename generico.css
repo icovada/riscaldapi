@@ -1,0 +1,42 @@
+body {
+    width: 1024px;
+    margin: 0 auto;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+.termostato {
+	border: 2px solid gray;
+	border-radius: 1em;
+	background: -webkit-linear-gradient(top, #E4E4E4, #BBBABB);
+	text-align:justify;
+	padding: 2em;
+}
+.lcd {
+	position: relative;
+	top: 20px;
+	border-radius: 20px;
+	background: #EDEDED;
+	vertical-align: middle;
+	padding: 2em;
+}
+.lcdtxt{
+	text-align: center;
+	line-height: 40px;
+	font-family: monospace;
+	font-size: 40px;
+	color: green;
+}
+.sparkline{
+	position: relative;
+	padding-left: 8%;
+	padding-right: 0px;
+}
+#slider-vertical {
+    height: 200px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#slider {
+    height: 200px;
+    float: left;
+    margin: 3px;
+}
