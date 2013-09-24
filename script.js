@@ -23,13 +23,11 @@ $(function () {
             min: 180,
             animate: false,
             orientation: "vertical",
-            slide: function (event, ui) {
-                $(this).parent().find("label").text((parseInt($(this).slider('value'))/10).toFixed(1));
-            },
-            change: function (event, ui) {
-                $(this).parent().find("label").text((parseInt($(this).slider('value'))/10).toFixed(1));
-            }
+            slide: function( event, ui ) {
+        		$(this).parent().find("label").text((ui.value/10).toFixed(1));
+      		}
         });
     });
+    $("td > #slider").tooltip({items: "span", content: $(this).closest("#slider").data("time")});
 
 });
