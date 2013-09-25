@@ -21,7 +21,7 @@ $(function () {
             value: value,
             max: 220,
             min: 180,
-            animate: false,
+            animate: true,
             orientation: "vertical",
             slide: function( event, ui ) {
         		$(this).parent().find("label").text((ui.value/10).toFixed(1));
