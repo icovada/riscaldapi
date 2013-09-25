@@ -44,3 +44,11 @@ body {
     float: left;
     margin: 3px;
 }
+
+.ui-slider .ui-slider-handle {
+    width: 12px;
+}
+
+.ui-slider-vertical {
+    width: 4px;    
+}

@@ -30,4 +30,9 @@ $(function () {
     });
     $("td > #slider").tooltip({items: "span", content: $(this).closest("#slider").data("time")});
 
+    $( "#accordion" ).accordion({
+    	active: 2, //giorno della settimana
+    	animate: false
+    });
+
 });
