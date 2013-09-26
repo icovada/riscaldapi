@@ -16,13 +16,15 @@ body {
 }
 .lcd {
 	position: relative;
-	top: 20px;
+	top: 1em;
 	border-radius: 20px;
 	background: #EDEDED;
 	vertical-align: middle;
 	padding: 2em;
 }
 .lcdtxt{
+    position: relative;
+    top: 6px;
 	text-align: center;
 	line-height: 40px;
 	font-family: monospace;
@@ -33,6 +35,7 @@ body {
 	position: relative;
 	padding-left: 8%;
 	padding-right: 0px;
+	top: -0.5em;
 }
 #slider-vertical {
     height: 200px;
@@ -50,5 +53,12 @@ body {
 }
 
 .ui-slider-vertical {
+    position: relative;
+    left: 11px;
     width: 4px;    
+}
+
+#numeri {
+    font-size: 10px;
+    margin-left: 4px;
 }

@@ -16,7 +16,7 @@ $(function () {
     $("td > #slider").each(function () {
         // read initial values from markup and remove that
         var value = parseInt($(this).text(), 10);
-        $(this).after("<label for=span id='numeri'>" + (value / 10).toFixed(1) + "</label>");
+        $(this).after("<label id='numeri'>" + (value / 10).toFixed(1) + "</label>");
         $(this).empty().slider({
             value: value,
             max: 220,
@@ -35,4 +35,5 @@ $(function () {
     	animate: false
     });
 
+    $("td #numeri:odd").addClass("sotto");
 });
