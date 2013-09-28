@@ -39,5 +39,5 @@ $(function () {
     	animate: false
     });
 
-    $("td #numeri:odd").addClass("sotto");
+    $(".ui-slider-handle").each( function() {$(this).text($(this).parent().data("time"))})
 });

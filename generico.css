@@ -49,16 +49,17 @@ body {
 }
 
 .ui-slider .ui-slider-handle {
-    width: 12px;
+    /*width: 11px;*/
+    text-align: center;
 }
 
 .ui-slider-vertical {
     position: relative;
-    left: 11px;
-    width: 4px;    
+/*    left: 10px;
+    width: 4px;    */
 }
 
 #numeri {
     font-size: 10px;
-    margin-left: 4px;
+    /*margin-left: 4px;*/
 }
