@@ -10,13 +10,13 @@
 <body>
     <h1>Welcome to nginx!</h1>
     <div class="termostato">
-        <span class="lcd">
+        <span id="lcd" class="lcd hidden">
                 <span
                 class="lcdtxt">20°</span>
         </span>
-        <span class="sparkline">18,19,20,20.3,20.5,20.3,19,18,21.9,19,19.3,19.8,20,20.2,20.3,22</span>
+        <span id="sparkline" class="hidden">18,19,20,20.3,20.5,20.3,19,18,21.9,19,19.3,19.8,20,20.2,20.3,22</span>
 
-        <div id="accordion" style="margin-top: 1em; visibility: hidden;">
+        <div id="accordion" class="hidden" style="margin-top: 1em">
         	<h3>Lunedì</h3>
             	<table style="width: 100%;" id="lunedi" class="giornata">
                 <tr>

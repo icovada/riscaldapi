@@ -31,7 +31,7 @@ body {
 	font-size: 40px;
 	color: green;
 }
-.sparkline{
+#sparkline{
 	position: relative;
 	padding-left: 8%;
 	padding-right: 0px;
@@ -62,4 +62,8 @@ body {
 #numeri {
     font-size: 10px;
     /*margin-left: 4px;*/
+}
+
+.hidden{
+    visibility: hidden;
 }

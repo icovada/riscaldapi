@@ -1,6 +1,6 @@
 $(function () {
     //var tempwid = $('.lcd').width();
-    $(".sparkline").sparkline('html', {
+    $("#sparkline").sparkline('html', {
         type: 'line',
         width: 600,// - tempwid,
         height: '100',
@@ -38,6 +38,11 @@ $(function () {
     	active: n, //giorno della settimana
     	animate: false
     });
+
+    /* Show the page once jQ has loaded */
+    $("#lcd").removeClass("hidden");
+    $("#sparkline").removeClass("hidden");
+    $("#accordion").removeClass("hidden");
 
     $(".ui-slider-handle").each( function() {$(this).text($(this).parent().data("time"))})
 });
