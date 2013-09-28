@@ -3,6 +3,13 @@ body {
     margin: 0 auto;
     font-family: Tahoma, Verdana, Arial, sans-serif;
 }
+
+#loading{
+    position: relative;
+    top: 200px;
+    width: 100%;
+}
+
 .termostato {
 	border: 2px solid gray;
 	border-radius: 1em;
