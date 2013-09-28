@@ -43,5 +43,7 @@ $(function () {
     $("#sparkline").removeClass("hidden");
     $("#accordion").removeClass("hidden");
 
-    $(".ui-slider-handle").each( function() {$(this).text($(this).parent().data("time"))})
+    $(".ui-slider-handle").each( function() {
+        $(this).text($(this).parent().data("time"))
+    });
 });
