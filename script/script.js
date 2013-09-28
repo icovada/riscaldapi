@@ -28,8 +28,7 @@ $(function () {
       		}
         });
     });
-    $("td > #slider").tooltip({items: "span", content: $(this).closest("#slider").data("time")});
-	
+    
     var d =new Date();
     var n = d.getDay()-1;
     if ( n == -1) { n = 6;}
