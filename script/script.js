@@ -39,6 +39,7 @@ $(function () {
     });
 
     /* Show the page once jQ has loaded */
+    $("#loading").remove();
     $("#lcd").removeClass("hidden");
     $("#sparkline").removeClass("hidden");
     $("#accordion").removeClass("hidden");
