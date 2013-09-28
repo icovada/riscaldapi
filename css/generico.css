@@ -13,6 +13,7 @@ body {
     background:        -linear-gradient(top, #E4E4E4, #BBBABB);
 	text-align:justify;
 	padding: 2em;
+    height: 653px;
 }
 .lcd {
 	position: relative;
