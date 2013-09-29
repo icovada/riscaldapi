@@ -1,6 +1,21 @@
 $(function () {
+    //Get array for graph
+
+    $.ajax({
+        type: 'GET',       
+        url: "php/graph.php",
+        dataType: 'html',
+        context: document.body,
+        global: false,
+        async:false,
+        success: function(data) {
+            result=data.substring(0, data.length - 2).split(",");
+        }
+    });
+    alert(result);
+
     //var tempwid = $('.lcd').width();
-    $("#sparkline").sparkline('html', {
+    $("#sparkline").sparkline(result, {
         type: 'line',
         width: 600,// - tempwid,
         height: '100',
