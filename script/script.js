@@ -12,9 +12,7 @@ $(function () {
             result=data.substring(0, data.length - 2).split(",");
         }
     });
-    alert(result);
 
-    //var tempwid = $('.lcd').width();
     $("#sparkline").sparkline(result, {
         type: 'line',
         width: 600,// - tempwid,
