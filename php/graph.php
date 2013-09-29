@@ -1,10 +1,12 @@
 <?php
 $connection = mysqli_connect('localhost','riscaldapi','riscaldapi','riscaldapi')
         or die("Connection refused");
-    $query = "SELECT UNIX_TIMESTAMP(`timestamp`) FROM `history`";
+    $query = "SELECT `inside` FROM `history`";
     $result=mysqli_query($connection,$query);
+    $past= array();
     while($row = mysqli_fetch_row($result)) {
-  		print($row[0] . "<br>");
-	}
+  		array_push($past, $row);
+  	}
+  	print(json_encode($past));
     mysqli_close($connection);
 ?>
