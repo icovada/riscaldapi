@@ -3,17 +3,17 @@ $(function () {
 
     $.ajax({
         type: 'GET',       
-        url: "php/graph.php",
+        url: "php/history.php",
         dataType: 'html',
         context: document.body,
         global: false,
         async:false,
         success: function(data) {
-            result=data.substring(0, data.length - 2).split(",");
+            history=data.substring(0, data.length - 2).split(",");
         }
     });
 
-    $("#sparkline").sparkline(result, {
+    $("#sparkline").sparkline(history, {
         type: 'line',
         width: 600,// - tempwid,
         height: '100',
