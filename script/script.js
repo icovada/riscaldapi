@@ -1,18 +1,18 @@
 $(function () {
     //Get array for graph
-
     $.ajax({
         type: 'GET',       
         url: "php/history.php",
         dataType: 'html',
         context: document.body,
         global: false,
-        async:false,
+        async: false,
         success: function(data) {
             history=data.substring(0, data.length - 2).split(",");
         }
     });
 
+    $(".lcdtxt").text(history[history.length-1]+"°");
     $("#sparkline").sparkline(history, {
         type: 'line',
         width: 600,// - tempwid,
