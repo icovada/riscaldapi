@@ -52,9 +52,11 @@ $(function () {
     });
 
     /* Show the page once jQ has loaded */
-    $("#loading").remove();
+    $("#loading-all").remove();
     $("#lcd").removeClass("hidden");
     $("#sparkline").removeClass("hidden");
+    $("#sparkline").after("<span id=\"loading-slider\" class=\"loading\"><center>Loading...</center></span>");
+    $("#loading-slider").remove();
     $("#accordion").removeClass("hidden");
 
     $(".ui-slider-handle").each( function() {

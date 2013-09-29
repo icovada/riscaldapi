@@ -4,7 +4,7 @@ body {
     font-family: Tahoma, Verdana, Arial, sans-serif;
 }
 
-#loading{
+.loading{
     position: relative;
     top: 200px;
     width: 100%;
