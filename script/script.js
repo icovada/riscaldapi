@@ -8,12 +8,12 @@ $(function () {
         global: false,
         async: false,
         success: function(data) {
-            history=data.substring(0, data.length - 2).split(",");
+            daily=data.substring(0, data.length - 2).split(",");
         }
     });
 
-    $(".lcdtxt").text(history[history.length-1]+"°");
-    $("#sparkline").sparkline(history, {
+    $(".lcdtxt").text(daily[daily.length-1]+"°");
+    $("#sparkline").sparkline(daily, {
         type: 'line',
         width: 600,// - tempwid,
         height: '100',
@@ -56,6 +56,8 @@ $(function () {
     $("#lcd").removeClass("hidden");
     $("#sparkline").removeClass("hidden");
     $("#sparkline").after("<span id=\"loading-slider\" class=\"loading\"><center>Loading...</center></span>");
+
+    
     $("#loading-slider").remove();
     $("#accordion").removeClass("hidden");
 
