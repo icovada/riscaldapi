@@ -1,6 +1,12 @@
 <?php
 $day = $_GET['day'];
 $precision = $_GET['prec'];
+
+if ($precision < '0' or $precision > 1 or $day < '0' or $day >'6') {
+	die("ERRORE");
+}
+
+
 $connection = mysqli_connect('localhost','riscaldapi','riscaldapi','riscaldapi')
         or die("Connection refused");
 
