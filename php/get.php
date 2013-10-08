@@ -16,5 +16,6 @@ $connection = mysqli_connect('localhost','riscaldapi','riscaldapi','riscaldapi')
 	    while($row = mysqli_fetch_row($result)) {
 	  		print($row[0].",");
 	  	}
+	}
     mysqli_close($connection);
 ?>
