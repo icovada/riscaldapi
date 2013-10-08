@@ -1,6 +1,6 @@
 <?php
 $day = $_GET['day'];
-$precision = $_GET['prec';]
+$precision = $_GET['prec'];
 $connection = mysqli_connect('localhost','riscaldapi','riscaldapi','riscaldapi')
         or die("Connection refused");
 
