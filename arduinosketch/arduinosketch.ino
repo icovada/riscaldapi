@@ -1,6 +1,10 @@
+#import <OneWire.h>
+
 #define BAUDRATE 9600
 #define RELAIS0 4
 #define RELAIS1 5
+
+OneWire ds(7);
 
 void setup() {
   Serial.begin(BAUDRATE);
