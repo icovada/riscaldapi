@@ -23,16 +23,10 @@ void setup() {
 
 void loop() {
   
-  ds.reset();
-  ds.select(insideTher);
-  ds.write(0x44, 0);        // start conversion, without parasite power
-    ds.reset();
-  ds.select(flowInTher);
-  ds.write(0x44, 0);        // start conversion, without parasite power
-    ds.reset();
-  ds.select(flowOutTher);
-  ds.write(0x44, 0);        // start conversion, without parasite power
-  ds.reset();  
+  calculateTemp(insideTher);
+  calculateTemp(flowInTher);
+  calculateTemp(flowOutTher);
+ 
   
   delay(1000);               // delay to calculate temperatures
   
@@ -105,4 +99,10 @@ void loop() {
       break;
     }
   }
+}
+
+void calculateTemp(byte sensor[8]) {
+  ds.reset();
+  ds.select(sensor);
+  ds.write(0x44, 0);        // start conversion, without parasite power
 }
