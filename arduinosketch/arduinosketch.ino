@@ -1,44 +1,49 @@
 #define BAUDRATE 9600
-#define RELAIS0 13
-#define RELAIS1 8
-#define ONEWIRE 10
+#define RELAIS0 4
+#define RELAIS1 5
 
 void setup() {
   Serial.begin(BAUDRATE);
-  // reserve 200 bytes for the inputString:
+  pinMode(RELAIS0, OUTPUT);
+  pinMode(RELAIS1, OUTPUT);
+  digitalWrite(RELAIS0, 1);
+  digitalWrite(RELAIS1, 1);
 }
 
 void loop() {
   if (Serial.available() > 0) {
     int inByte = Serial.read();
     switch (inByte) {
-      case 'a':
-        Serial.println("Relais 0 off");
-        digitalWrite(RELAIS0, LOW);
-        break;
+    case 'q':
+      Serial.println("Relais 0 off");
+      digitalWrite(RELAIS0, 1);
+      break;
 
-      case 'b':
-        Serial.println("Relais 0 on");
-        digitalWrite(RELAIS0, HIGH);
-        break;
+    case 'w':
+      Serial.println("Relais 0 on");
+      digitalWrite(RELAIS0, 0);
+      break;
 
-      case 'c':
-        Serial.println("Relais 1 off");
-        digitalWrite(RELAIS1, LOW);
-        break;
+    case 'e':
+      Serial.println("Relais 1 off");
+      digitalWrite(RELAIS1, 1);
+      break;
 
-      case 'd':
-        Serial.println("Relais 1 on");
-        digitalWrite(RELAIS0, HIGH);
-        break;
-        
-      case 'e':
-        Serial.println("Read and output sensor data");
-        break;
-        
-      case 'f':
-        Serial.println("Output relais status");
-        break;
+    case 'r':
+      Serial.println("Relais 1 on");
+      digitalWrite(RELAIS1, 0);
+      break;
+
+    case 't':
+      Serial.println("Read and output sensor data");
+      break;
+
+    case 'y':
+      Serial.println("Output relais status");
+      Serial.print(!digitalRead(RELAIS0));
+      Serial.print(", ");
+      Serial.println(!digitalRead(RELAIS1));
+      break;
     }
   }
 }
