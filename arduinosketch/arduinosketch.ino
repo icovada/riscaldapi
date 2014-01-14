@@ -26,43 +26,34 @@ void loop() {
   calculateTemp(insideTher);
   calculateTemp(flowInTher);
   calculateTemp(flowOutTher);
- 
   
   delay(1000);               // delay to calculate temperatures
   
+  readTemp(insideTher, insideRead);
+  readTemp(flowInTher, flowInRead);
+  readTemp(flowOutTher, flowOutRead);
+  
   Serial.print("Inside = ");
-    ds.reset();
-  ds.select(insideTher);
-  ds.write(0xBE);          // read temperature
   for ( i = 0; i < 9; i++) {           // we need 9 bytes
-    insideRead[i] = ds.read();
     Serial.print(insideRead[i], HEX);
     Serial.print(" ");
   }
-  
+    
   Serial.println();
-  Serial.print("Flow In = ");
-    ds.reset();
-  ds.select(flowInTher);
-  ds.write(0xBE);          // read temperature
+  Serial.print("flowin = ");
   for ( i = 0; i < 9; i++) {           // we need 9 bytes
-    flowInRead[i] = ds.read();
     Serial.print(flowInRead[i], HEX);
     Serial.print(" ");
   }
+    
   Serial.println();
-  Serial.print("Flow Out = ");
-  ds.reset();
-  ds.select(flowOutTher);
-  ds.write(0xBE);          // read temperature
+  Serial.print("flowout = ");
   for ( i = 0; i < 9; i++) {           // we need 9 bytes
-    flowOutRead[i] = ds.read();
     Serial.print(flowOutRead[i], HEX);
     Serial.print(" ");
   }
   Serial.println();
   Serial.println();
-  
   
   if (Serial.available() > 0) {
     int inByte = Serial.read();
@@ -101,8 +92,17 @@ void loop() {
   }
 }
 
-void calculateTemp(byte sensor[8]) {
+void calculateTemp(byte *sensor) {
   ds.reset();
   ds.select(sensor);
   ds.write(0x44, 0);        // start conversion, without parasite power
+}
+
+void readTemp(byte *sensor, byte *result){
+  ds.reset();
+  ds.select(sensor);
+  ds.write(0xBE);          // read temperature
+  for ( i = 0; i < 9; i++) {           // we need 9 bytes
+    result[i] = ds.read();
+  }
 }
