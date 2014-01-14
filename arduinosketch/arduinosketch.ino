@@ -5,9 +5,12 @@
 #define RELAIS1 5
 
 OneWire ds(7);
-byte insideTher[8] = { 0x28, 0xE, 0xF4, 0xAB, 0x4, 0x0, 0x0, 0x17 };
-byte flowInTher[8] = { 0x28, 0x69, 0xED, 0xAB, 0x4, 0x0, 0x0, 0xDE };
-byte flowOutTher[8] = { 0x28, 0xF7, 0x70, 0xAC, 0x4, 0x0, 0x0, 0xA1 };
+byte insideTher[8] = { 
+  0x28, 0xE, 0xF4, 0xAB, 0x4, 0x0, 0x0, 0x17 };
+byte flowInTher[8] = { 
+  0x28, 0x69, 0xED, 0xAB, 0x4, 0x0, 0x0, 0xDE };
+byte flowOutTher[8] = { 
+  0x28, 0xF7, 0x70, 0xAC, 0x4, 0x0, 0x0, 0xA1 };
 byte insideRead[8];
 byte flowInRead[8];
 byte flowOutRead[8];
@@ -22,39 +25,17 @@ void setup() {
 }
 
 void loop() {
-  
+
   calculateTemp(insideTher);
   calculateTemp(flowInTher);
   calculateTemp(flowOutTher);
-  
+
   delay(1000);               // delay to calculate temperatures
-  
+
   readTemp(insideTher, insideRead);
   readTemp(flowInTher, flowInRead);
   readTemp(flowOutTher, flowOutRead);
-  
-  Serial.print("Inside = ");
-  for ( i = 0; i < 9; i++) {           // we need 9 bytes
-    Serial.print(insideRead[i], HEX);
-    Serial.print(" ");
-  }
-    
-  Serial.println();
-  Serial.print("flowin = ");
-  for ( i = 0; i < 9; i++) {           // we need 9 bytes
-    Serial.print(flowInRead[i], HEX);
-    Serial.print(" ");
-  }
-    
-  Serial.println();
-  Serial.print("flowout = ");
-  for ( i = 0; i < 9; i++) {           // we need 9 bytes
-    Serial.print(flowOutRead[i], HEX);
-    Serial.print(" ");
-  }
-  Serial.println();
-  Serial.println();
-  
+
   if (Serial.available() > 0) {
     int inByte = Serial.read();
     switch (inByte) {
@@ -80,6 +61,27 @@ void loop() {
 
     case 't':
       Serial.println("Read and output sensor data");
+      Serial.print("Inside = ");
+      for ( i = 0; i < 9; i++) {           // we need 9 bytes
+        Serial.print(insideRead[i], HEX);
+        Serial.print(" ");
+      }
+
+      Serial.println();
+      Serial.print("flowin = ");
+      for ( i = 0; i < 9; i++) {           // we need 9 bytes
+        Serial.print(flowInRead[i], HEX);
+        Serial.print(" ");
+      }
+
+      Serial.println();
+      Serial.print("flowout = ");
+      for ( i = 0; i < 9; i++) {           // we need 9 bytes
+        Serial.print(flowOutRead[i], HEX);
+        Serial.print(" ");
+      }
+      Serial.println();
+      Serial.println();
       break;
 
     case 'y':
@@ -106,3 +108,4 @@ void readTemp(byte *sensor, byte *result){
     result[i] = ds.read();
   }
 }
+
