@@ -14,6 +14,8 @@ byte flowOutTher[8] = {
 float insideRead;
 float flowInRead;
 float flowOutRead;
+float goalTemp = 18;
+float diffTemp = 0.3;
 byte i;
 
 void setup() {
@@ -26,6 +28,9 @@ void setup() {
 
 void loop() {
 
+  Serial.println(goalTemp);
+  Serial.println(diffTemp);
+    
   calculateTemp(insideTher);
   calculateTemp(flowInTher);
   calculateTemp(flowOutTher);
@@ -84,6 +89,12 @@ void loop() {
       Serial.print(", ");
       Serial.println(!digitalRead(RELAIS1));
       break;
+    
+    case 'u':        //manage inputs
+      goalTemp=Serial.parseFloat();
+
+    case 'd':
+      diffTemp=Serial.parseFloat();
     }
   }
 }
