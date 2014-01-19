@@ -35,11 +35,38 @@ void loop() {
   calculateTemp(flowInTher);
   calculateTemp(flowOutTher);
 
-  delay(600);               // delay to calculate temperatures
+  delay(800);               // delay to calculate temperatures
 
   insideRead=readTemp(insideTher);
   flowInRead=readTemp(flowInTher);
   flowOutRead=readTemp(flowOutTher);
+
+  // If relais off AND temperature is lower than (goal-diff) turn it on
+  if ((!digitalRead(RELAIS0) == 0) && (insideRead < (goalTemp-diffTemp))){
+    digitalWrite(RELAIS0, 0);
+  }
+    
+  // If relais on AND temperature is higher than (goal+diff) turn it off
+  if ((!digitalRead(RELAIS0) == 1) && (insideRead > (goalTemp+diffTemp))){
+    digitalWrite(RELAIS0, 1);
+  }
+  
+  
+        Serial.print("Inside = ");
+      Serial.print(insideRead);
+      
+
+      Serial.println();
+      Serial.print("flowin = ");
+      Serial.print(flowInRead);
+      
+
+      Serial.println();
+      Serial.print("flowout = ");
+      Serial.print(flowOutRead);
+
+      Serial.println();
+      Serial.println();
 
   if (Serial.available() > 0) {
     int inByte = Serial.read();
@@ -92,9 +119,11 @@ void loop() {
     
     case 'u':        //manage inputs
       goalTemp=Serial.parseFloat();
+      break;
 
     case 'd':
       diffTemp=Serial.parseFloat();
+      break;
     }
   }
 }
@@ -113,6 +142,7 @@ float readTemp(byte *sensor){
   ds.reset();
   ds.select(sensor);
   ds.write(0xBE);          // read temperature
+  delay(250);
   for ( i = 0; i < 9; i++) {           // we need 9 bytes
    data[i] = ds.read();
   }
@@ -129,6 +159,6 @@ float readTemp(byte *sensor){
   else if (cfg == 0x20) raw = raw & ~3; // 10 bit res, 187.5 ms
   else if (cfg == 0x40) raw = raw & ~1; // 11 bit res, 375 ms
   //// default is 12 bit resolution, 750 ms conversion time
-  return (float)raw / 16.0;
+  return ((float)raw / 16.0);
 }
 
