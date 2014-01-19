@@ -32,9 +32,9 @@ void loop() {
 
   delay(1000);               // delay to calculate temperatures
 
-  readTemp(insideTher, insideRead);
-  readTemp(flowInTher, flowInRead);
-  readTemp(flowOutTher, flowOutRead);
+  readTemp(insideTher);
+  readTemp(flowInTher);
+  readTemp(flowOutTher);
 
   if (Serial.available() > 0) {
     int inByte = Serial.read();
@@ -100,12 +100,24 @@ void calculateTemp(byte *sensor) {
   ds.write(0x44, 0);        // start conversion, without parasite power
 }
 
-void readTemp(byte *sensor, byte *result){
+float readTemp(byte *sensor){
+  float result;
+  byte tempRead[12];
+  
   ds.reset();
   ds.select(sensor);
   ds.write(0xBE);          // read temperature
   for ( i = 0; i < 9; i++) {           // we need 9 bytes
-    result[i] = ds.read();
+    tempRead[i] = ds.read();
   }
+  
+  if (OneWire::crc8(tempRead, 8) == tempRead[9]){
+    Serial.print("Right");
+  } else {
+    Serial.print("Wrong");
+  }
+  
+  
+  return result;
 }
 
