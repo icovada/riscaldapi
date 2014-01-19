@@ -11,9 +11,9 @@ byte flowInTher[8] = {
   0x28, 0x69, 0xED, 0xAB, 0x4, 0x0, 0x0, 0xDE };
 byte flowOutTher[8] = { 
   0x28, 0xF7, 0x70, 0xAC, 0x4, 0x0, 0x0, 0xA1 };
-byte insideRead[12];
-byte flowInRead[12];
-byte flowOutRead[12];
+float insideRead;
+float flowInRead;
+float flowOutRead;
 byte i;
 
 void setup() {
@@ -30,11 +30,11 @@ void loop() {
   calculateTemp(flowInTher);
   calculateTemp(flowOutTher);
 
-  delay(1000);               // delay to calculate temperatures
+  delay(600);               // delay to calculate temperatures
 
-  readTemp(insideTher);
-  readTemp(flowInTher);
-  readTemp(flowOutTher);
+  insideRead=readTemp(insideTher);
+  flowInRead=readTemp(flowInTher);
+  flowOutRead=readTemp(flowOutTher);
 
   if (Serial.available() > 0) {
     int inByte = Serial.read();
@@ -62,24 +62,18 @@ void loop() {
     case 't':
       Serial.println("Read and output sensor data");
       Serial.print("Inside = ");
-      for ( i = 0; i < 9; i++) {           // we need 9 bytes
-        Serial.print(insideRead[i], HEX);
-        Serial.print(" ");
-      }
+      Serial.print(insideRead);
+      
 
       Serial.println();
       Serial.print("flowin = ");
-      for ( i = 0; i < 9; i++) {           // we need 9 bytes
-        Serial.print(flowInRead[i], HEX);
-        Serial.print(" ");
-      }
+      Serial.print(flowInRead);
+      
 
       Serial.println();
       Serial.print("flowout = ");
-      for ( i = 0; i < 9; i++) {           // we need 9 bytes
-        Serial.print(flowOutRead[i], HEX);
-        Serial.print(" ");
-      }
+      Serial.print(flowOutRead);
+
       Serial.println();
       Serial.println();
       break;
@@ -98,29 +92,32 @@ void calculateTemp(byte *sensor) {
   ds.reset();
   ds.select(sensor);
   ds.write(0x44, 0);        // start conversion, without parasite power
+  delay(250);
 }
 
 float readTemp(byte *sensor){
   float result;
-  byte tempRead[12];
+  byte data[12];
   
   ds.reset();
   ds.select(sensor);
   ds.write(0xBE);          // read temperature
   for ( i = 0; i < 9; i++) {           // we need 9 bytes
-    tempRead[i] = ds.read();
+   data[i] = ds.read();
   }
   
-  Serial.print(OneWire::crc8(tempRead, 8));
-  Serial. print("    ");
-  Serial.println(tempRead[8]);
-  if (OneWire::crc8(tempRead, 8) == tempRead[8]){
-    Serial.println("Right");
-  } else {
-    Serial.println("Wrong");
+  if (OneWire::crc8(data, 8) != data[8]){   //Check CRC
+    return (-100);
   }
   
-  
-  return result;
+  //////Code from library example sketch
+  int16_t raw = (data[1] << 8) | data[0];
+  byte cfg = (data[4] & 0x60);
+  // at lower res, the low bits are undefined, so let's zero them
+  if (cfg == 0x00) raw = raw & ~7;  // 9 bit resolution, 93.75 ms
+  else if (cfg == 0x20) raw = raw & ~3; // 10 bit res, 187.5 ms
+  else if (cfg == 0x40) raw = raw & ~1; // 11 bit res, 375 ms
+  //// default is 12 bit resolution, 750 ms conversion time
+  return (float)raw / 16.0;
 }
 
