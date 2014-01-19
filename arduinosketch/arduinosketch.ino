@@ -111,10 +111,13 @@ float readTemp(byte *sensor){
     tempRead[i] = ds.read();
   }
   
-  if (OneWire::crc8(tempRead, 8) == tempRead[9]){
-    Serial.print("Right");
+  Serial.print(OneWire::crc8(tempRead, 8));
+  Serial. print("    ");
+  Serial.println(tempRead[8]);
+  if (OneWire::crc8(tempRead, 8) == tempRead[8]){
+    Serial.println("Right");
   } else {
-    Serial.print("Wrong");
+    Serial.println("Wrong");
   }
   
   
