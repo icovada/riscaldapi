@@ -1,10 +1,13 @@
 #include <OneWire.h>
+#include <DallasTemperature.h>
 
 #define BAUDRATE 9600
 #define RELAIS0 4
 #define RELAIS1 5
 
 OneWire ds(7);
+DallasTemperature sensors(&ds);
+
 byte insideTher[8] = { 
   0x28, 0xE, 0xF4, 0xAB, 0x4, 0x0, 0x0, 0x17 };
 byte flowInTher[8] = { 
@@ -24,13 +27,15 @@ void setup() {
   pinMode(RELAIS1, OUTPUT);
   digitalWrite(RELAIS0, 1);
   digitalWrite(RELAIS1, 1);
+  
+  //Set sensor resolution
+  sensors.setResolution(insideTher, 12);
+  sensors.setResolution(flowInTher, 11);
+  sensors.setResolution(flowOutTher, 11);
+  
 }
 
 void loop() {
-
-  Serial.println(goalTemp);
-  Serial.println(diffTemp);
-    
   calculateTemp(insideTher);
   calculateTemp(flowInTher);
   calculateTemp(flowOutTher);
@@ -50,23 +55,6 @@ void loop() {
   if ((!digitalRead(RELAIS0) == 1) && (insideRead > (goalTemp+diffTemp))){
     digitalWrite(RELAIS0, 1);
   }
-  
-  
-        Serial.print("Inside = ");
-      Serial.print(insideRead);
-      
-
-      Serial.println();
-      Serial.print("flowin = ");
-      Serial.print(flowInRead);
-      
-
-      Serial.println();
-      Serial.print("flowout = ");
-      Serial.print(flowOutRead);
-
-      Serial.println();
-      Serial.println();
 
   if (Serial.available() > 0) {
     int inByte = Serial.read();
@@ -153,12 +141,6 @@ float readTemp(byte *sensor){
   
   //////Code from library example sketch
   int16_t raw = (data[1] << 8) | data[0];
-  byte cfg = (data[4] & 0x60);
-  // at lower res, the low bits are undefined, so let's zero them
-  if (cfg == 0x00) raw = raw & ~7;  // 9 bit resolution, 93.75 ms
-  else if (cfg == 0x20) raw = raw & ~3; // 10 bit res, 187.5 ms
-  else if (cfg == 0x40) raw = raw & ~1; // 11 bit res, 375 ms
-  //// default is 12 bit resolution, 750 ms conversion time
-  return ((float)raw / 16.0);
+  return (((float)raw / 16.0)-1);
 }
 
