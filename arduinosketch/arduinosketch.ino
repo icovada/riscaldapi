@@ -18,7 +18,7 @@ float insideRead;
 float flowInRead;
 float flowOutRead;
 float goalTemp = 18;
-float diffTemp = 0.3;
+float diffTemp = 0.2;
 byte i;
 
 void setup() {
