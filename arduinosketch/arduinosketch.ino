@@ -136,7 +136,7 @@ float readTemp(byte *sensor){
   }
   
   if (OneWire::crc8(data, 8) != data[8]){   //Check CRC
-    return (-100);
+    return (250); //If temperature read is wrong, return ludicrously high temp and keep relais off 
   }
   
   //////Code from library example sketch
