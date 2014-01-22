@@ -1,19 +1,6 @@
 $(function () {
-    //Get array for graph
-    $.ajax({
-        type: 'GET',       
-        url: "php/history.php",
-        dataType: 'html',
-        context: document.body,
-        global: false,
-        async: false,
-        success: function(data) {
-            daily=data.substring(0, data.length - 2).split(",");
-        }
-    });
-
-    $(".lcdtxt").text(daily[daily.length-1]+"°");
-    $("#sparkline").sparkline(daily, {
+    //var tempwid = $('.lcd').width();
+    $("#sparkline").sparkline('html', {
         type: 'line',
         width: 600,// - tempwid,
         height: '100',
@@ -52,13 +39,9 @@ $(function () {
     });
 
     /* Show the page once jQ has loaded */
-    $("#loading-all").remove();
+    $("#loading").remove();
     $("#lcd").removeClass("hidden");
     $("#sparkline").removeClass("hidden");
-    $("#sparkline").after("<span id=\"loading-slider\" class=\"loading\"><center>Loading...</center></span>");
-
-    
-    $("#loading-slider").remove();
     $("#accordion").removeClass("hidden");
 
     $(".ui-slider-handle").each( function() {
