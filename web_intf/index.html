@@ -8,545 +8,552 @@
 </head>
 
 <body>
-    <link rel="stylesheet" href="css/generico.css"/>
+    <h1>Welcome to nginx!</h1>
     <div class="termostato">
-        <span id="loading-all" class="loading"><center>Loading...</center></span>
+        <span id="loading"><center>Loading...</center></span>
         <span id="lcd" class="lcd hidden">
-                <span class="lcdtxt">20°</span>
+                <span
+                class="lcdtxt">20°</span>
         </span>
         <span id="sparkline" class="hidden">18,19,20,20.3,20.5,20.3,19,18,21.9,19,19.3,19.8,20,20.2,20.3,22</span>
 
         <div id="accordion" class="hidden" style="margin-top: 1em">
         	<h3>Lunedì</h3>
-            	<table style="width: 100%;" id="lunedi" class="giornata" data-day="0"><tr>
-                    <td class="colonna">
+            	<table style="width: 100%;" id="lunedi" class="giornata">
+                <tr>
+                    <td class="stringi">
                         <span data-time="0" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="1" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="2" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="3" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="4" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="5" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="6" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="7" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="8" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="9" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="10" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="11" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="12" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="13" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="14" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="15" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="16" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="17" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="18" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="19" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="20" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="21" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="22" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="23" id="slider" class="notte">200</span>
                     </td>
-                </tr></table>
+                </tr>
+            	</table>
             <h3>Martedì</h3>
-            	<table style="width: 100%;" id="martedi" class="giornata" data-day="1"><tr>
-                    <td class="colonna">
+            	<table style="width: 100%;" id="martedi" class="giornata"><tr>
+                    <td class="stringi">
                         <span data-time="0" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="1" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="2" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="3" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="4" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="5" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="6" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="7" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="8" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="9" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="10" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="11" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="12" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="13" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="14" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="15" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="16" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="17" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="18" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="19" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="20" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="21" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="22" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="23" id="slider" class="notte">200</span>
                     </td>
                 </tr></table>
             <h3>Mercoledì</h3>
-                <table style="width: 100%;" id="mercoledi" class="giornata" data-day="2"><tr>
-                    <td class="colonna">
+                <table style="width: 100%;" id="mercoledi" class="giornata"><tr>
+                    <td class="stringi">
                         <span data-time="0" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="1" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="2" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="3" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="4" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="5" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="6" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="7" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="8" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="9" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="10" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="11" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="12" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="13" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="14" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="15" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="16" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="17" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="18" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="19" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="20" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="21" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="22" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="23" id="slider" class="notte">200</span>
                     </td>
                 </tr></table>
             <h3>Giovedì</h3>
-                <table style="width: 100%;" id="giovedi" class="giornata" data-day="3"><tr>
-                    <td class="colonna">
+                <table style="width: 100%;" id="giovedi" class="giornata"><tr>
+                    <td class="stringi">
                         <span data-time="0" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="1" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="2" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="3" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="4" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="5" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="6" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="7" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="8" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="9" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="10" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="11" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="12" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="13" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="14" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="15" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="16" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="17" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="18" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="19" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="20" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="21" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="22" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="23" id="slider" class="notte">200</span>
                     </td>
                 </tr></table>
             <h3>Venerdì</h3>
-                <table style="width: 100%;" id="venerdi" class="giornata" data-day="4"><tr>
-                    <td class="colonna">
+                <table style="width: 100%;" id="venerdi" class="giornata"><tr>
+                    <td class="stringi">
                         <span data-time="0" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="1" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="2" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="3" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="4" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="5" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="6" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="7" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="8" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="9" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="10" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="11" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="12" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="13" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="14" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="15" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="16" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="17" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="18" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="19" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="20" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="21" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="22" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="23" id="slider" class="notte">200</span>
                     </td>
                 </tr></table>
             <h3>Sabato</h3>
-                <table style="width: 100%;" id="sabato" class="giornata" data-day="5"><tr>
-                    <td class="colonna">
+                <table style="width: 100%;" id="sabato" class="giornata"><tr>
+                    <td class="stringi">
                         <span data-time="0" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="1" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="2" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="3" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="4" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="5" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="6" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="7" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="8" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="9" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="10" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="11" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="12" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="13" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="14" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="15" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="16" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="17" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="18" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="19" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="20" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="21" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="22" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="23" id="slider" class="notte">200</span>
                     </td>
                 </tr></table>
             <h3>Domenica</h3>
-                <table style="width: 100%;" id="domenica" class="giornata" data-day="6"><tr>
-                    <td class="colonna">
+                <table style="width: 100%;" id="domenica" class="giornata"><tr>
+                    <td class="stringi">
                         <span data-time="0" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="1" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="2" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="3" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="4" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="5" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="6" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="7" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="8" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="9" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="10" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="11" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="12" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="13" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="14" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="15" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="16" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="17" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="18" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="19" id="slider" class="giorno">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="20" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="21" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="22" id="slider" class="notte">200</span>
                     </td>
-                    <td class="colonna">
+                    <td class="stringi">
                         <span data-time="23" id="slider" class="notte">200</span>
                     </td>
                 </tr></table>
         </div>
     </div>
 
+    <p><em>Thank you for using nginx.</em>
+    </p>
+
     <link rel="stylesheet" href="script/jquery-ui-1.10.3/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" href="css/jquery-ui-giorno.min.css"/>
+    <link rel="stylesheet" href="css/generico.css"/>
     <script src="script/jquery.js"></script>
     <script src="script/sparkline.js"></script>
     <script src="script/jquery-ui-1.10.3/ui/jquery-ui.js"></script>
