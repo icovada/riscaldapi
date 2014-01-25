@@ -84,7 +84,7 @@ void loop() {
       Serial.print(",");
       Serial.print(flowInRead);
       Serial.print(",");
-      Serial.print(flowOutRead);
+      Serial.println(flowOutRead);
       break;
 
     case 'y':
@@ -95,13 +95,18 @@ void loop() {
     
     case 'u':        //manage inputs
       goalTemp=Serial.parseFloat();
-      Serial.print(goalTemp);
+      Serial.println(goalTemp);
       break;
 
-    case 'd':
+    case 'i':
       diffTemp=Serial.parseFloat();
-      Serial.print(diffTemp);
+      Serial.println(diffTemp);
       break;
+      
+    case 'o':
+      Serial.print(goalTemp);
+      Serial.print(",");
+      Serial.println(diffTemp);
     }
   }
 }
@@ -131,6 +136,6 @@ float readTemp(byte *sensor){
   
   //////Code from library example sketch
   int16_t raw = (data[1] << 8) | data[0];
-  return (float)raw / 16.0);
+  return ((float)raw / 16.0);
 }
 
