@@ -60,57 +60,47 @@ void loop() {
     int inByte = Serial.read();
     switch (inByte) {
     case 'q':
-      Serial.println("Relais 0 off");
+      Serial.println("ACK");
       digitalWrite(RELAIS0, 1);
       break;
 
     case 'w':
-      Serial.println("Relais 0 on");
+      Serial.println("ACK");
       digitalWrite(RELAIS0, 0);
       break;
 
     case 'e':
-      Serial.println("Relais 1 off");
+      Serial.println("ACK");
       digitalWrite(RELAIS1, 1);
       break;
 
     case 'r':
-      Serial.println("Relais 1 on");
+      Serial.println("ACK");
       digitalWrite(RELAIS1, 0);
       break;
 
     case 't':
-      Serial.println("Read and output sensor data");
-      Serial.print("Inside = ");
       Serial.print(insideRead);
-      
-
-      Serial.println();
-      Serial.print("flowin = ");
+      Serial.print(",");
       Serial.print(flowInRead);
-      
-
-      Serial.println();
-      Serial.print("flowout = ");
+      Serial.print(",");
       Serial.print(flowOutRead);
-
-      Serial.println();
-      Serial.println();
       break;
 
     case 'y':
-      Serial.println("Output relais status");
       Serial.print(!digitalRead(RELAIS0));
-      Serial.print(", ");
+      Serial.print(",");
       Serial.println(!digitalRead(RELAIS1));
       break;
     
     case 'u':        //manage inputs
       goalTemp=Serial.parseFloat();
+      Serial.print(goalTemp);
       break;
 
     case 'd':
       diffTemp=Serial.parseFloat();
+      Serial.print(diffTemp);
       break;
     }
   }
@@ -141,6 +131,6 @@ float readTemp(byte *sensor){
   
   //////Code from library example sketch
   int16_t raw = (data[1] << 8) | data[0];
-  return (((float)raw / 16.0)-1);
+  return (float)raw / 16.0);
 }
 
