@@ -17,9 +17,9 @@ cur = conn.cursor()
 
 #out = open("out.csv","wb")
 while True:
-	test.write(bytes("t", encoding='ascii'))
-	time.sleep(1)
 	try:
+		test.write(bytes("t", encoding='ascii'))
+		time.sleep(1)
 		myin = test.readline()
 	except serial.serialutil.SerialException:
 		pass
