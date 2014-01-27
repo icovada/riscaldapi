@@ -27,7 +27,7 @@ while True:
 	print(temps)
 	try:
 		cur.execute("INSERT INTO `riscaldapi`.`temphistory` (`inside`, `flowIn`, `flowOut`) VALUES ('"+str(temps[0])+"', '"+str(temps[1])+"', '"+str(temps[2])+"')");
-	except IndexError:  #If the answer does not contain three fields (like an ACK)
+	except:  #If the answer does not contain three fields (like an ACK)
 		pass
 #	out.write(myin)
 #	out.flush()
