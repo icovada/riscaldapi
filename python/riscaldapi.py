@@ -15,6 +15,7 @@ conn = pymysql.connect(host="127.0.0.1", user="riscaldapi", passwd="riscaldapi",
 cur = conn.cursor()
 
 flowOutHistory=[40,40,40,40]
+counter = 0
 
 #out = open("out.csv","wb")
 while True:
@@ -51,7 +52,10 @@ while True:
 			pass
 
 	time.sleep(4)
-	conn.commit()
+
+	counter = counter + 1
+	if (counter >= 5):
+		conn.commit()
 
 test.close()
 conn.close()
