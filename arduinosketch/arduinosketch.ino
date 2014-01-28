@@ -18,8 +18,9 @@ float insideRead;
 float flowInRead;
 float flowOutRead;
 float goalTemp = 18;
-float diffTemp = 0.2;
+float diffTemp = 0.15;
 byte i;
+int j;
 
 void setup() {
   Serial.begin(BAUDRATE);
@@ -29,6 +30,7 @@ void setup() {
   digitalWrite(RELAIS1, 1);
   
   //Set sensor resolution
+  sensors.begin();
   sensors.setResolution(insideTher, 12);
   sensors.setResolution(flowInTher, 11);
   sensors.setResolution(flowOutTher, 11);
@@ -40,7 +42,10 @@ void loop() {
   calculateTemp(flowInTher);
   calculateTemp(flowOutTher);
 
-  delay(800);               // delay to calculate temperatures
+  for (j = 0; j < 10; j++){
+    communication();
+    delay(100);
+  }
 
   insideRead=readTemp(insideTher);
   flowInRead=readTemp(flowInTher);
@@ -55,59 +60,10 @@ void loop() {
   if ((!digitalRead(RELAIS0) == 1) && (insideRead > (goalTemp+diffTemp))){
     digitalWrite(RELAIS0, 1);
   }
-
-  if (Serial.available() > 0) {
-    int inByte = Serial.read();
-    switch (inByte) {
-    case 'q':
-      Serial.println("ACK");
-      digitalWrite(RELAIS0, 1);
-      break;
-
-    case 'w':
-      Serial.println("ACK");
-      digitalWrite(RELAIS0, 0);
-      break;
-
-    case 'e':
-      Serial.println("ACK");
-      digitalWrite(RELAIS1, 1);
-      break;
-
-    case 'r':
-      Serial.println("ACK");
-      digitalWrite(RELAIS1, 0);
-      break;
-
-    case 't':
-      Serial.print(insideRead);
-      Serial.print(",");
-      Serial.print(flowInRead);
-      Serial.print(",");
-      Serial.println(flowOutRead);
-      break;
-
-    case 'y':
-      Serial.print(!digitalRead(RELAIS0));
-      Serial.print(",");
-      Serial.println(!digitalRead(RELAIS1));
-      break;
-    
-    case 'u':        //manage inputs
-      goalTemp=Serial.parseFloat();
-      Serial.println(goalTemp);
-      break;
-
-    case 'i':
-      diffTemp=Serial.parseFloat();
-      Serial.println(diffTemp);
-      break;
-      
-    case 'o':
-      Serial.print(goalTemp);
-      Serial.print(",");
-      Serial.println(diffTemp);
-    }
+  
+  for (j = 0; j < 30; j++){
+    communication();
+    delay(100);
   }
 }
 
@@ -139,3 +95,66 @@ float readTemp(byte *sensor){
   return ((float)raw / 16.0);
 }
 
+void communication(){
+  if (Serial.available() > 0) {
+    int inByte = Serial.read();
+    switch (inByte) {
+    case 'q':
+      Serial.println("ACK");
+      digitalWrite(RELAIS0, 1);
+      break;
+
+    case 'w':
+      Serial.println("ACK");
+      digitalWrite(RELAIS0, 0);
+      break;
+
+    case 'e':
+      Serial.println("ACK");
+      digitalWrite(RELAIS1, 1);
+      break;
+
+    case 'r':
+      Serial.println("ACK");
+      digitalWrite(RELAIS1, 0);
+      break;
+
+    case 't':
+      Serial.print(insideRead);
+      Serial.print(",");
+      Serial.print(flowInRead);
+      Serial.print(",");
+      Serial.print(flowOutRead);
+      Serial.print(",");
+      Serial.print(goalTemp);
+      Serial.print(",");
+      Serial.print(diffTemp);
+      Serial.print(",");
+      Serial.print(!digitalRead(RELAIS0));
+      Serial.print(",");
+      Serial.println(!digitalRead(RELAIS1));
+      break;
+    
+    //A miniute of silence for "case 'y':"
+    
+    case 'u':
+      goalTemp=Serial.parseFloat();
+      Serial.println(goalTemp);
+      break;
+
+    case 'i':
+      diffTemp=Serial.parseFloat();
+      Serial.println(diffTemp);
+      break;
+     
+    //"case 'o':" is in a better place now...
+      
+    case 'p':
+      Serial.println("ACK");
+      digitalWrite(RELAIS0, 0);
+      delay(1000);
+      digitalWrite(RELAIS0, 1);
+      break;
+    }
+  }
+}
