@@ -42,13 +42,13 @@ while True:
 
 		print(temps, fire)
 		try:
-			cur.execute("INSERT INTO `riscaldapi`.`temphistory` (`inside`, `flowIn`, `flowOut`, `goalTemp`, `diffTemp`, `rel1`, `fire`) VALUES ('"+str(temps[0])+"', '"+str(temps[1])+"', '"+str(temps[2])+"', '"+str(temps[3])+"', '"+str(temps[4])+"', '"+str(temps[5])+"', '"+str(fire)+"')");
+			cur.execute("INSERT INTO `riscaldapi`.`temphistory` (`inside`, `flowIn`, `flowOut`, `goalTemp`, `diffTemp`, `rel1`, `fire`) VALUES (%s, %s, %s, %s, %s, %s, %s)" %(temps[0],temps[1],temps[2],temps[3],temps[4],temps[5],temps[6]));
 		except:
 			pass
 
 		try:
-			ret = rrdtool.update('riscaldapi.rrd', 'N:%f:%f:%f' %(float(temps[0]), float(temps[1]), float(temps[2])))
-		except:  #If the answer does not contain three fields (like an ACK)
+			ret = rrdtool.update('riscaldapi.rrd', 'N:%s:%s:%s' %(temps[0], temps[1], temps[2]))
+		except:
 			pass
 
 	time.sleep(4)
