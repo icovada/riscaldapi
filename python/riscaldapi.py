@@ -44,7 +44,7 @@ while True:
 		try:
 			cur.execute("INSERT INTO `riscaldapi`.`temphistory` (`inside`, `flowIn`, `flowOut`, `goalTemp`, `diffTemp`, `rel1`, `fire`) VALUES ('"+str(temps[0])+"', '"+str(temps[1])+"', '"+str(temps[2])+"', '"+str(temps[3])+"', '"+str(temps[4])+"', '"+str(temps[5])+"', '"+str(fire)+"')");
 		except:
-			time.sleep(3)
+			pass
 
 		try:
 			ret = rrdtool.update('riscaldapi.rrd', 'N:%f:%f:%f' %(float(temps[0]), float(temps[1]), float(temps[2])))
