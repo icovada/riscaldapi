@@ -92,12 +92,23 @@ while True:
 		counter = 0
 		now = datetime.datetime.now()
 		seconds = ((now.weekday()*24*3600) + (now.hour*3600) + (now.minute*60)+ now.second) #Seconds from monday midnight
-		cur.execute("SELECT * FROM `schedule` WHERE `seconds` < %i ORDER BY `seconds` DESC LIMIT 1" %(seconds))
-		result = cur.fetchall()
-		setGoalTemp = float(result[0][1])
-		setDiffTemp = float(result[0][2])
+		try:			#Database might be unreachable
+			cur.execute("SELECT * FROM `schedule` WHERE `seconds` < %i ORDER BY `seconds` DESC LIMIT 1" %(seconds))
+			result = cur.fetchall()
+			setGoalTemp = float(result[0][1])
+			setDiffTemp = float(result[0][2])
 
-		conn.commit()
+			cur.execute("SELECT `goalTemp`, `diffTemp` FROM `override` WHERE `startTime` < %i AND `endTime` > %i DESC LIMIT 1" %(seconds, seconds))
+			result = cur.fetchall()
+			if (len(result) != 0):
+				setGoalTemp = float(result[0][0])
+				setDiffTemp = float(result[0][1])
+
+			conn.commit()
+
+		except:
+			setGoalTemp = 17
+			setDiffTemp = 0.15
 
 test.close()
 conn.close()
