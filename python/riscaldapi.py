@@ -16,7 +16,7 @@ conn = pymysql.connect(host="127.0.0.1", user="riscaldapi", passwd="riscaldapi",
 cur = conn.cursor()
 
 flowOutHistory=[40,40,40,40]
-counter = 0
+counter = 5
 setGoalTemp=20
 setDiffTemp=0.15
 now = datetime.datetime.now()
@@ -73,7 +73,7 @@ while True:
 		flowOutHistory.append(float(temps[2]))
 		del flowOutHistory[0]
 
-		print(temps, fire, seconds)
+		print(temps, fire, seconds, setGoalTemp, setDiffTemp)
 		try:
 			cur.execute("INSERT INTO `riscaldapi`.`temphistory` (`inside`, `flowIn`, `flowOut`, `goalTemp`, `diffTemp`, `rel1`, `fire`) VALUES (%s, %s, %s, %s, %s, %s, %s)" %(temps[0],temps[1],temps[2],temps[3],temps[4],temps[5],temps[6]));
 		except:
@@ -98,7 +98,8 @@ while True:
 			setGoalTemp = float(result[0][1])
 			setDiffTemp = float(result[0][2])
 
-			cur.execute("SELECT `goalTemp`, `diffTemp` FROM `override` WHERE `startTime` < %i AND `endTime` > %i DESC LIMIT 1" %(seconds, seconds))
+			timestamp = int(time.time())
+			cur.execute("SELECT `goalTemp`, `diffTemp` FROM `override` WHERE `startTime` < %i AND `endTime` > %i" %(timestamp, timestamp))
 			result = cur.fetchall()
 			if (len(result) != 0):
 				setGoalTemp = float(result[0][0])
