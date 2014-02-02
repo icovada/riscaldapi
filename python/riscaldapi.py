@@ -64,7 +64,7 @@ while True:
 
 		#Guess whether fire is on or not
 		flowOut = float(temps[2])
-		if (flowOut > (sum(flowOutHistory) / len(flowOutHistory) )):
+		if ((flowOut > (sum(flowOutHistory) / len(flowOutHistory) )) and (int(temps[5]) == 1)):
 			fire = 1
 		else:
 			fire = 0
@@ -99,7 +99,7 @@ while True:
 			setDiffTemp = float(result[0][2])
 
 			timestamp = int(time.time())
-			cur.execute("SELECT `goalTemp`, `diffTemp` FROM `override` WHERE `startTime` < %i AND `endTime` > %i" %(timestamp, timestamp))
+			cur.execute("SELECT `goalTemp`, `diffTemp` FROM `override` WHERE `startTime` < FROM_UNIXTIME(%i) AND `endTime` > FROM_UNIXTIME(%i)" %(timestamp, timestamp))
 			result = cur.fetchall()
 			if (len(result) != 0):
 				setGoalTemp = float(result[0][0])
