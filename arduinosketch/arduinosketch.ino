@@ -56,15 +56,15 @@ void loop() {
     digitalWrite(RELAIS0, 0);
   }
     
-  // If relais on AND temperature is higher than (goal+diff) turn it off
-  if ((!digitalRead(RELAIS0) == 1) && (insideRead > (goalTemp+diffTemp))){
-    digitalWrite(RELAIS0, 1);
-  }  
+  // If relais on 
+  if (!digitalRead(RELAIS0) == 1){
+    if (insideRead > (goalTemp+diffTemp)) { //turn off relais
+      digitalWrite(RELAIS0, 1);
+    }  
   
-  // if relais is on and return water temperature is above 48°C
-  // halve the diff temperature to not overheat
-  if ((flowInRead > 48) && (insideRead > (goalTemp+(diffTemp/2)))){
-    digitalWrite(RELAIS0, 1);
+    if ((flowInRead > 48) && (insideRead > (goalTemp+(diffTemp/2)))){
+      digitalWrite(RELAIS0, 1);  //turn off relais before if water hot already
+    }
   }
   
   for (j = 0; j < 30; j++){
