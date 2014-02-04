@@ -80,7 +80,7 @@ while True:
 			pass
 
 		try:
-			ret = rrdtool.update('riscaldapi.rrd', 'N:%s:%s:%s:%s:%s:%s:%s' %(temps[0], temps[1], temps[2], temps[3], temps[4], temps[5], temps[6]))
+			ret = rrdtool.update('riscaldapi.rrd', 'N:%s:%s:%s:%s:%s:%s:%s' %(temps[0], temps[1], temps[2], temps[3], temps[4], temps[5], fire))
 
 		except:
 			pass
