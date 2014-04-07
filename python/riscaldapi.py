@@ -75,7 +75,7 @@ while True:
 
 		print(temps, fire, seconds, setGoalTemp, setDiffTemp)
 		try:
-			cur.execute("INSERT INTO `riscaldapi`.`temphistory` (`inside`, `flowIn`, `flowOut`, `goalTemp`, `diffTemp`, `rel1`, `fire`) VALUES (%s, %s, %s, %s, %s, %s, %s)" %(temps[0],temps[1],temps[2],temps[3],temps[4],temps[5],temps[6]));
+			cur.execute("INSERT INTO `riscaldapi`.`temphistory` (`inside`, `flowIn`, `flowOut`, `goalTemp`, `diffTemp`, `rel1`, `fire`) VALUES (%s, %s, %s, %s, %s, %s, %s)" %(temps[0],temps[1],temps[2],temps[3],temps[4],temps[5],fire));
 		except:
 			pass
 
